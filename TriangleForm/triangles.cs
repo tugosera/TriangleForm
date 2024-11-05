@@ -13,12 +13,19 @@ namespace TriangleForm
         public double c;
         public double h;
 
-        public Triangles(double A, double B, double C, double H)
+        public Triangles() { }
+
+        public Triangles(double A)
+        {
+            a = A;
+            b = A;
+            c = A;
+        }
+        public Triangles(double A, double B, double C)
         {
             a = A;
             b = B;
             c = C;
-            h = H;
         }
 
         public string outputA() 
@@ -57,10 +64,10 @@ namespace TriangleForm
             return s;   
         }
 
-        public double GetHeight(double baseLenght, double s)
+        public double GetHeight(double a, double s)
         {
             double H = 0;
-            H = (2* s) / baseLenght;
+            H = (2* s) / a;
             return H;
         }
 
@@ -120,6 +127,32 @@ namespace TriangleForm
                     return false;
                 else
                     return true;
+            }
+        }
+
+        public string TriangleType
+        {
+            get
+            {
+                if(ExistTriangle)
+                {
+                    if (a==b && b==c && a==c)
+                    {
+                        return "Võrdkülgne";
+                    }
+                    else if (a==b || a==c || b==c)
+                    {
+                        return "võrdhaarne";
+                    }
+                    else
+                    {
+                        return "erikülgne";
+                    }
+                }
+                else
+                {
+                    return "tundmatu tüüp";
+                }
             }
         }
     }
