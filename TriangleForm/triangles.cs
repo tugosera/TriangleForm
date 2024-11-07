@@ -129,12 +129,11 @@ namespace TriangleForm
                     return true;
             }
         }
-
         public string TriangleType
         {
             get
             {
-                if(ExistTriangle)
+                if (ExistTriangle)
                 {
                     if (a==b && b==c && a==c)
                     {
@@ -152,6 +151,25 @@ namespace TriangleForm
                 else
                 {
                     return "tundmatu tüüp";
+                }
+            }
+        }
+
+        public string TrianglePicture
+        {
+            get
+            {
+                if (TriangleType == "Võrdkülgne")
+                {
+                    return @"..\..\..\02.png";
+                }
+                else if (TriangleType == "võrdhaarne")
+                {
+                    return @"..\..\..\03.png";
+                }
+                else
+                {
+                    return @"..\..\..\01.png";
                 }
             }
         }

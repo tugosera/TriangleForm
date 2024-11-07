@@ -124,6 +124,8 @@ namespace TriangleForm
 
             list.Items[6].SubItems.Add(triangle.TriangleType);
 
+            pb.Image = Image.FromFile(triangle.TrianglePicture);
+
             list.Items[7].SubItems.Add(Convert.ToString(triangle.GetHeight(a,triangle.Surface())));
         }
     }
