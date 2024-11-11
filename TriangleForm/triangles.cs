@@ -11,6 +11,10 @@ namespace TriangleForm
         public double a;
         public double b;
         public double c;
+        public double corna;
+        public double cornb;
+        public double cornc;
+        public double cornd;
         public double h;
 
         public Triangles() { }
@@ -28,6 +32,14 @@ namespace TriangleForm
             c = C;
         }
 
+        public Triangles(double A, double B, double C, double D)
+        {
+            corna = A;
+            cornb = B;
+            cornc = C;
+            cornd = D;
+        }
+
         public string outputA() 
         {
             return Convert.ToString(a); 
@@ -41,6 +53,21 @@ namespace TriangleForm
         public string outputC() 
         {
             return Convert.ToString(c);
+        }
+
+        public string outputcornA()
+        {
+            return Convert.ToString(corna);
+        }
+
+        public string outputcornB()
+        {
+            return Convert.ToString(cornb);
+        }
+
+        public string outputcornC()
+        {
+            return Convert.ToString(cornc);
         }
 
         public string outputH()
@@ -107,6 +134,42 @@ namespace TriangleForm
             }
         }
 
+        public double GetSetAA
+        {
+            get
+            {
+                return a;
+            }
+            set
+            {
+                a = value;
+            }
+        }
+
+        public double GetSetBB
+        {
+            get
+            {
+                return b;
+            }
+            set
+            {
+                b = value;
+            }
+        }
+
+        public double GetSetCC
+        {
+            get
+            {
+                return c;
+            }
+            set
+            {
+                c = value;
+            }
+        }
+
         public double GetSetH
         {
             get
@@ -127,6 +190,17 @@ namespace TriangleForm
                     return false;
                 else
                     return true;
+            }
+        }
+
+        public bool ExistTriangleCorn
+        {
+            get
+            {
+                if ((corna + cornb + cornc == 180))
+                    return true;
+                else
+                    return false;
             }
         }
         public string TriangleType
@@ -155,6 +229,36 @@ namespace TriangleForm
             }
         }
 
+        public string TriangleTypeCorner
+        {
+            get
+            {
+                if (ExistTriangleCorn)
+                {
+                    if (corna == cornb && cornb == cornc && corna == cornc)
+                    {
+                        return "Võrdkülgne";
+                    }
+                    else if (corna == cornb || corna == cornc || cornb == cornc)
+                    {
+                        return "võrdhaarne";
+                    }
+                    else if (corna == 90 || corna == 90 || cornb == 90)
+                    {
+                        return "ristkülikujuline";
+                    }
+                    else
+                    {
+                        return "erikülgne";
+                    }
+                }
+                else
+                {
+                    return "tundmatu tüüp";
+                }
+            }
+        }
+
         public string TrianglePicture
         {
             get
@@ -167,11 +271,16 @@ namespace TriangleForm
                 {
                     return @"..\..\..\03.png";
                 }
-                else
+                else if (TriangleType == "erikülgne")
                 {
                     return @"..\..\..\01.png";
+                }
+                else
+                {
+                    return @"..\..\..\kot.png";
                 }
             }
         }
     }
 }
+

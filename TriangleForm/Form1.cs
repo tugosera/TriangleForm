@@ -6,7 +6,7 @@ namespace TriangleForm
     public partial class Form1 : Form
     {
         Label lbl1, lbl2, lbl3;
-        Button btn;
+        Button btn, btn2;
         PictureBox pb;
         ListView list;
         TextBox txtA, txtB, txtC;
@@ -19,8 +19,8 @@ namespace TriangleForm
             btn.Text = "Старт";
             btn.Height = 100;
             btn.Width = 200;
-            btn.Location = new Point(600, 100);
-            btn.BackColor = Color.FromArgb(255, 255, 192);
+            btn.Location = new Point(600, 180);
+            btn.BackColor = Color.LightGreen;
             btn.Font = new Font("Arial", 28);
             btn.Cursor = Cursors.Hand;
             btn.FlatStyle = FlatStyle.Flat;
@@ -83,6 +83,24 @@ namespace TriangleForm
             list.Columns.Add("Поле", 250, HorizontalAlignment.Left);
             list.Columns.Add("Значение", 250, HorizontalAlignment.Left);
             Controls.Add(list);
+
+            btn2 = new Button();
+            btn2.Text = "форма 2";
+            btn2.Height = 100;
+            btn2.Width = 200;
+            btn2.Location = new Point(600, 50);
+            btn2.BackColor = Color.Blue;
+            btn2.Font = new Font("Arial", 28);
+            btn2.Cursor = Cursors.Hand;
+            btn2.FlatStyle = FlatStyle.Flat;
+            btn2.Click += Btn2_Click;
+            Controls.Add(btn2);
+        }
+
+        private void Btn2_Click(object? sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(900, 700);
+            form2.Show();
         }
 
         private void Btn_Click(object? sender, EventArgs e)
@@ -130,4 +148,3 @@ namespace TriangleForm
         }
     }
 }
-
